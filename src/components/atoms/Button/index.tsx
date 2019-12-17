@@ -1,5 +1,6 @@
 import React from 'react'
 import classnames from 'classnames'
+import './index.scss'
 
 export enum ButtonColor {  
   Normal = "normal",
@@ -14,7 +15,9 @@ type Props = {
 
 const Button: React.FC<Props> = ({ color = ButtonColor.Normal, message }) => {
   return (
-    <button className={classnames('Button', color)}>{message}</button>
+    <div className={classnames('Button', color)}>
+      <button>{message}</button>
+    </div>
   )
 }
 
