@@ -3,8 +3,10 @@ import React from "react";
 const Header: React.FC = () => {
   return (
     <header className="Header">
-      {/* TODO: バーガーメニュー作成 */}
-      <div>burger</div>
+      <div className="inner">
+        {/* TODO: バーガーメニュー作成 */}
+        <div className="burger-menue">burger</div>
+      </div>
     </header>
   );
 };

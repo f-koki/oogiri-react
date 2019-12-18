@@ -1,10 +1,13 @@
 @import "../../../style/variables";
 .Footer {
-  // padding: 20px;
   background-color: $eveningGray;
   color: $midnightGray;
   height: $footerHeight;
   position: absolute;
   bottom: 0;
   width: 100%;
+
+  .inner {
+    padding: 20px;
+  }
 }

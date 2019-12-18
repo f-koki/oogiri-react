@@ -1,5 +1,18 @@
 @import "../../../style/variables";
 .Header {
-  height: 70px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $headerHeight;
   background-color: $midnightBlue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .burger-menue {
+    display: block;
+    float: right;
+    padding: 0 20px;
+  }
 }

@@ -16,14 +16,14 @@ body {
     margin: 0 auto;
     max-width: 425px;
   }
-}
 
-.wrapper {
-  position: relative;
-  min-height: 100vh;
-  padding-bottom: $footerHeight;
-}
+  .wrapper {
+    position: relative;
+    min-height: 100vh;
 
-.contents {
-  min-height: 70vh;
+    .contents {
+      padding-top: $headerHeight;
+      padding-bottom: $footerHeight;
+    }
+  }
 }
