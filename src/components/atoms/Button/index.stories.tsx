@@ -2,7 +2,7 @@ import React from 'react';
 import Button, { ButtonColor } from '.'
 
 export default {
-  title: 'Button'
+  title: 'atoms/Button'
 }
 
 export const normal = () => <Button message={ButtonColor.Normal} />;

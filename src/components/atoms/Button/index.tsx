@@ -1,6 +1,5 @@
 import React from 'react'
 import classnames from 'classnames'
-import './index.scss'
 
 export enum ButtonColor {  
   Normal = "normal",

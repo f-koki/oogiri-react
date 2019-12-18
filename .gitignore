@@ -1,3 +1,7 @@
 node_modules
 _index.css
 _index.min.css
+_variables.css
+_variables.min.css
+style.css
+style.min.css
