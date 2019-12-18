@@ -4,7 +4,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="Footer">
       {/* TODO: メニュー作成 */}
-      footer
+      <p>(c)f-koki</p>
     </footer>
   );
 };

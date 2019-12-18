@@ -6,11 +6,11 @@ import Footer from "../../molecules/Footer";
 class App extends React.Component {
   render() {
     return (
-      <>
+      <div className="wrapper">
         <Header />
         <Contents />
         <Footer />
-      </>
+      </div>
     );
   }
 }

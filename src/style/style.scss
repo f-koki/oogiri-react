@@ -6,6 +6,24 @@
 @import "../components/molecules/Header/index";
 
 body {
+  display: block;
   color: $moonYellow;
-  background-color: $eveningBlue;
+  background-color: $midnightGray;
+
+  #root {
+    background-color: $eveningBlue;
+    text-align: center;
+    margin: 0 auto;
+    max-width: 425px;
+  }
+}
+
+.wrapper {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: $footerHeight;
+}
+
+.contents {
+  min-height: 70vh;
 }

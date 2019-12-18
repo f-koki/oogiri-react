@@ -7,10 +7,12 @@ type Props = {};
 
 const Contents: React.FC<Props> = () => {
   return (
-    <Switch>
-      <Route exact path="/" component={Top} />
-      <Route exact path="/login" component={Login} />
-    </Switch>
+    <div className="contents">
+      <Switch>
+        <Route exact path="/" component={Top} />
+        <Route exact path="/login" component={Login} />
+      </Switch>
+    </div>
   );
 };
 
