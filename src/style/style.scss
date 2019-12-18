@@ -1,5 +1,11 @@
-@import "../constants/variables";
+@import "./reset";
+@import "./variables";
 @import "../components/atoms/Button/index";
 @import "../components/atoms/Form/index";
 @import "../components/molecules/Footer/index";
 @import "../components/molecules/Header/index";
+
+body {
+  color: $moonYellow;
+  background-color: $eveningBlue;
+}
