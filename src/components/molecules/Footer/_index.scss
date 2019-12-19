@@ -5,9 +5,18 @@
   height: $footerHeight;
   position: absolute;
   bottom: 0;
+  height: 30%;
   width: 100%;
 
   .inner {
-    padding: 20px;
+    height: 100%;
+    display: relative;
+    // padding: 20px;
+
+    .copyright {
+      padding: 20px;
+      margin: auto 0;
+      font-size: 8px;
+    }
   }
 }

@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
     <footer className="Footer">
       <div className="inner">
         {/* TODO: メニュー作成 */}
-        <p>(c)f-koki</p>
+        <div className="copyright">(c)f-koki</div>
       </div>
     </footer>
   );
