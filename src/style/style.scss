@@ -2,8 +2,10 @@
 @import "./variables";
 @import "../components/atoms/Button/index";
 @import "../components/atoms/Form/index";
+@import "../components/atoms/Moon/index";
 @import "../components/molecules/Footer/index";
 @import "../components/molecules/Header/index";
+@import "../components/organisms/Top/index";
 
 body {
   display: block;
