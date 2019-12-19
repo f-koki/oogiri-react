@@ -11,6 +11,7 @@ export default class Top extends React.Component<Props, State> {
     return (
       <div className="Top">
         <Moon />
+        <div>救急車がMAJIDE終わってる</div>
       </div>
     );
   }

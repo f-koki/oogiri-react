@@ -1,7 +1,7 @@
 @import "../../../style/variables";
 .Footer {
   background-color: $oceanBlue;
-  color: $midnightGray;
+  color: $midnightBlue;
   height: $footerHeight;
   position: absolute;
   bottom: 0;
@@ -17,7 +17,7 @@
       left: 0;
       bottom: 0;
       right: 0;
-      padding: 20px;
+      padding: 10px;
       font-size: 8px;
     }
   }
