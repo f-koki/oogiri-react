@@ -23,13 +23,6 @@ export default class Top extends React.Component<Props, State> {
 
   handleButtonClick = () => {
     const server = "/api";
-    // fetch(server).then(res => {
-    //   res.json().then(json => {
-    //     this.setState({
-    //       hoge: json.api
-    //     });
-    //   });
-    // });
     const main = async () => {
       const res = await axios.get<GetHoge>(server);
       this.setState({
