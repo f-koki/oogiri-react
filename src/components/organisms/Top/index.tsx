@@ -20,6 +20,7 @@ export default class Top extends React.Component<Props, State> {
       hoge: "hoge"
     };
   }
+
   handleButtonClick = () => {
     const server = "/api";
     // fetch(server).then(res => {
@@ -29,11 +30,13 @@ export default class Top extends React.Component<Props, State> {
     //     });
     //   });
     // });
-    axios.get<GetHoge>(server).then(res => {
+    const main = async () => {
+      const res = await axios.get<GetHoge>(server);
       this.setState({
         hoge: res.data.api
       });
-    });
+    };
+    main();
   };
 
   render() {
