@@ -21,6 +21,7 @@
     "build-css": "node-sass ./src/style/style.scss -o ./src",
     "watch-css": "node-sass -wr ./src/style/style.scss -o ./src",
     "start-app": "react-scripts start",
+    "mock": "json-server --watch ./src/test/mock.json --port 8080",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 9009 -s public",
@@ -49,6 +50,7 @@
     "@storybook/react": "^5.2.8",
     "@types/react": "^16.9.16",
     "@types/react-dom": "^16.9.4",
+    "json-server": "^0.15.1",
     "node-sass": "^4.13.0",
     "npm-run-all": "^4.1.5"
   }
