@@ -17,21 +17,28 @@ export default class Top extends React.Component<Props, State> {
     };
   }
   handleButtonClick = () => {
-    const server = "http://localhost:8080/";
-    axios
-      .get(server)
-      .then(res => {
-        alert("res:" + res);
-        // this.setState({
-        //   hoge: res.data
-        // });
-      })
-      .catch(() => {
-        // this.setState({
-        //   hoge: "fail"
-        // });
-        alert("fail");
+    const server = "/api";
+    fetch(server).then(res => {
+      res.json().then(json => {
+        this.setState({
+          hoge: json.api
+        });
       });
+    });
+    //   axios
+    //     .get(server)
+    //     .then(res => {
+    //       alert("res:" + res);
+    //       // this.setState({
+    //       //   hoge: res.data
+    //       // });
+    //     })
+    //     .catch(() => {
+    //       // this.setState({
+    //       //   hoge: "fail"
+    //       // });
+    //       alert("fail");
+    //     });
   };
 
   render() {
