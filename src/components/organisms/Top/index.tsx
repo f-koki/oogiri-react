@@ -9,6 +9,10 @@ type State = {
   hoge: any;
 };
 
+type GetHoge = {
+  api: string;
+};
+
 export default class Top extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
@@ -18,27 +22,18 @@ export default class Top extends React.Component<Props, State> {
   }
   handleButtonClick = () => {
     const server = "/api";
-    fetch(server).then(res => {
-      res.json().then(json => {
-        this.setState({
-          hoge: json.api
-        });
+    // fetch(server).then(res => {
+    //   res.json().then(json => {
+    //     this.setState({
+    //       hoge: json.api
+    //     });
+    //   });
+    // });
+    axios.get<GetHoge>(server).then(res => {
+      this.setState({
+        hoge: res.data.api
       });
     });
-    //   axios
-    //     .get(server)
-    //     .then(res => {
-    //       alert("res:" + res);
-    //       // this.setState({
-    //       //   hoge: res.data
-    //       // });
-    //     })
-    //     .catch(() => {
-    //       // this.setState({
-    //       //   hoge: "fail"
-    //       // });
-    //       alert("fail");
-    //     });
   };
 
   render() {
