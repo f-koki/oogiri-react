@@ -37,7 +37,7 @@ export default class Top extends React.Component<Props, State> {
       <div className="Top">
         <button onClick={this.handleButtonClick}>button</button>
         <Moon />
-        <div>救急車がMAJIDE終わってる</div>
+        <div>ボケ</div>
         <div>{this.state.hoge}</div>
       </div>
     );

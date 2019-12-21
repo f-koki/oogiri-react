@@ -1,4 +1,5 @@
 import React from "react";
+import Moon from "../../atoms/Moon";
 
 const Header: React.FC = () => {
   return (
@@ -8,7 +9,7 @@ const Header: React.FC = () => {
         <div className="home-icon">icon</div>
         {/* TODO: バーガーメニュー作成 */}
         <div className="burger-menue">burger</div>
-        <img src="./assets/svg/moon.svg" alt="" />
+        <Moon />
       </div>
     </header>
   );
