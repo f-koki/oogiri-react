@@ -1,7 +1,7 @@
 import React from "react";
 import Moon from "../../atoms/Moon";
 import axios from "axios";
-import firebase, { database } from "firebase";
+import { firebaseDb } from "../../../firebase/index";
 
 type Sample = {
   ID: number;
@@ -40,8 +40,7 @@ export default class Top extends React.Component<Props, State> {
   };
 
   getFireData() {
-    let db = firebase.database();
-    let ref = db.ref("sample/");
+    let ref = firebaseDb.ref("sample/");
     let self = this;
     ref
       .orderByKey()
