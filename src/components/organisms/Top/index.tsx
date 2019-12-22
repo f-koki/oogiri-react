@@ -1,13 +1,18 @@
 import React from "react";
 import Moon from "../../atoms/Moon";
 import axios from "axios";
-import firebase from "firebase";
+import firebase, { database } from "firebase";
+
+type Sample = {
+  ID: number;
+  name: string;
+};
 
 type Props = {};
 
 type State = {
   hoge: any;
-  data: [];
+  datas: Sample[];
 };
 
 type GetHoge = {
@@ -19,7 +24,7 @@ export default class Top extends React.Component<Props, State> {
     super(props);
     this.state = {
       hoge: "hoge",
-      data: []
+      datas: []
     };
   }
 
@@ -42,26 +47,29 @@ export default class Top extends React.Component<Props, State> {
       .orderByKey()
       .limitToFirst(10)
       .on("value", snapshot => {
-        alert("hoge");
         self.setState({
-          data: snapshot.val()
+          datas: snapshot.val()
         });
       });
   }
 
   render() {
-    if (this.state.data.length === 0) {
+    if (this.state.datas.length === 0) {
       this.getFireData();
     }
-
-    alert(this.state.data);
-
     return (
       <div className="Top">
         <button onClick={this.handleButtonClick}>button</button>
         <Moon />
         <div>ボケ</div>
         <div>{this.state.hoge}</div>
+        {this.state.datas && this.state.datas.length !== 0 && (
+          <div>
+            {this.state.datas.map(data => {
+              return <div>{data.name}</div>;
+            })}
+          </div>
+        )}
       </div>
     );
   }

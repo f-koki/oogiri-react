@@ -6,17 +6,19 @@ import firebase from "firebase";
 
 // Your web app's Firebase configuration
 var firebaseConfig = {
-  apiKey: "AIzaSyAOvxYUIFXeRNdjJt6hL7673z3wXZDgfa4",
-  authDomain: "moon-ogiri.firebaseapp.com",
-  databaseURL: "https://moon-ogiri.firebaseio.com",
-  projectId: "moon-ogiri",
-  storageBucket: "moon-ogiri.appspot.com",
-  messagingSenderId: "956945824736",
-  appId: "1:956945824736:web:ad64ff6a2494167f2d8985",
-  measurementId: "G-Q8Q298B81Z"
+  apiKey: "AIzaSyCxe9KJsLa6szLG6dYtWS0m0UKAO9FZEs0",
+  authDomain: "moon-ogiri-9cb45.firebaseapp.com",
+  databaseURL: "https://moon-ogiri-9cb45.firebaseio.com",
+  projectId: "moon-ogiri-9cb45",
+  storageBucket: "moon-ogiri-9cb45.appspot.com",
+  messagingSenderId: "179545196501",
+  appId: "1:179545196501:web:6356332520f82a0130df5c",
+  measurementId: "G-6N2KQD6S2G"
 };
 // Initialize Firebase
-firebase.initializeApp(firebaseConfig);
+if (!firebase.apps.length) {
+  firebase.initializeApp(firebaseConfig);
+}
 firebase.analytics();
 
 class App extends React.Component {
