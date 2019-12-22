@@ -36,7 +36,7 @@ export default class Top extends React.Component<Props, State> {
 
   getFireData() {
     let db = firebase.database();
-    let ref = db.ref("/sample");
+    let ref = db.ref("sample/");
     let self = this;
     ref
       .orderByKey()
