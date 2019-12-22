@@ -1,6 +1,8 @@
 @import "../../../style/variables";
 .Footer {
   background-color: $oceanBlue;
+  // TODO: グラデーションにしたい
+  // background: radial-gradient(ellipse at top, #fff, $oceanBlue 150px);
   color: $midnightBlue;
   height: $footerHeight;
   position: absolute;
