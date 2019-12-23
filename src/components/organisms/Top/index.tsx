@@ -53,6 +53,10 @@ export default class Top extends React.Component<Props, State> {
         name: "hanako"
       }
     });
+    ref.child("3").set({
+      ID: 3,
+      name: "fusako"
+    });
   };
 
   getFireData() {
