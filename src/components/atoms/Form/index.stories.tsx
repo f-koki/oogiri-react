@@ -1,8 +1,8 @@
-import React from 'react';
-import Form from './';
+import React from "react";
+import Form from "./";
 
 export default {
-    title: "atoms/Form"
-}
+  title: "atoms/Form"
+};
 
-export const form = () => <Form method="post" />;
+export const form = () => <Form onSubmit={() => {}} buttonMsg="submit" />;

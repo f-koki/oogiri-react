@@ -10,7 +10,7 @@ export default class Answer extends React.Component<Props, State> {
     return (
       <div className="Answer">
         {/* TODO: お題 */}
-        <Form method="post" />
+        {/* <Form method="post" /> */}
       </div>
     );
   }

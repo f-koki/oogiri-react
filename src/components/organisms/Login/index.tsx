@@ -1,5 +1,5 @@
 import React from "react";
-import Form from '../../atoms/Form'
+import Form from "../../atoms/Form";
 
 type Props = {};
 
@@ -12,13 +12,13 @@ export default class Login extends React.Component<Props, State> {
         <h1>ログイン画面</h1>
         <div>
           <p>ログインID</p>
-          <Form method="post" />
+          {/* <Form method="post" /> */}
         </div>
         <div>
           <p>パスワード</p>
-          <Form method="post" />
+          {/* <Form method="post" /> */}
         </div>
       </div>
-    )
+    );
   }
 }

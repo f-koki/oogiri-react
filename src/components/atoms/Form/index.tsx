@@ -1,17 +1,19 @@
-import React from 'react'
-import classnames from 'classnames'
+import React from "react";
+import classnames from "classnames";
 
 type Props = {
-  method: "get" | "post",
-  classname?: string
-}
+  classname?: string;
+  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  buttonMsg: string;
+};
 
-const Form: React.FC<Props> = ({ method, classname }) => {
+const Form: React.FC<Props> = ({ classname, onSubmit, buttonMsg }) => {
   return (
-    <form method={method} className={classnames('Form', classname)}>
+    <form className={classnames("Form", classname)} onSubmit={onSubmit}>
       <input type="text" />
+      <button type="submit">{buttonMsg}</button>
     </form>
-  )
-}
+  );
+};
 
-export default Form
+export default Form;

@@ -1,7 +1,7 @@
 import React from "react";
-import Moon from "../../atoms/Moon";
 import axios from "axios";
 import { firebaseDb } from "../../../firebase/index";
+import Form from "../../atoms/Form";
 
 type Sample = {
   ID: number;
@@ -39,6 +39,22 @@ export default class Top extends React.Component<Props, State> {
     main();
   };
 
+  handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    alert("sample/にデータを追加します。");
+    let ref = firebaseDb.ref("sample/");
+    ref.set({
+      1: {
+        ID: 1,
+        name: "taro"
+      },
+      2: {
+        ID: 2,
+        name: "hanako"
+      }
+    });
+  };
+
   getFireData() {
     let ref = firebaseDb.ref("sample/");
     let self = this;
@@ -53,14 +69,12 @@ export default class Top extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.datas.length === 0) {
+    if (this.state.datas && this.state.datas.length === 0) {
       this.getFireData();
     }
     return (
       <div className="Top">
         <button onClick={this.handleButtonClick}>button</button>
-        <Moon />
-        <div>ボケ</div>
         <div>{this.state.hoge}</div>
         {this.state.datas && this.state.datas.length !== 0 && (
           <div>
@@ -69,6 +83,7 @@ export default class Top extends React.Component<Props, State> {
             })}
           </div>
         )}
+        <Form onSubmit={this.handleSubmitClick} buttonMsg="ボケる" />
       </div>
     );
   }
