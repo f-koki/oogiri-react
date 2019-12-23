@@ -12,6 +12,7 @@ type State = {
       name: string;
     };
   };
+  boke: string;
 };
 
 type GetHoge = {
@@ -23,7 +24,8 @@ export default class Top extends React.Component<Props, State> {
     super(props);
     this.state = {
       hoge: "hoge",
-      datas: {}
+      datas: {},
+      boke: ""
     };
   }
 
@@ -38,11 +40,17 @@ export default class Top extends React.Component<Props, State> {
     main();
   };
 
-  handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
+  handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
+    this.setState({
+      boke: event.currentTarget.value
+    });
+  };
+
+  handleSubmitClick = () => {
     let ref = firebaseDb.ref("sample/");
     ref.push({
-      name: "hisashi"
+      name: this.state.boke
     });
   };
 
@@ -53,9 +61,7 @@ export default class Top extends React.Component<Props, State> {
       .orderByKey()
       .limitToFirst(10)
       .on("value", snapshot => {
-        self.setState({
-          datas: snapshot.val()
-        });
+        snapshot.val() && self.setState({ datas: snapshot.val() });
       });
   }
 
@@ -66,8 +72,6 @@ export default class Top extends React.Component<Props, State> {
     }
     return (
       <div className="Top">
-        {console.log("dataはこんなかんじ")}
-        {console.log(datas)}
         <button onClick={this.handleButtonClick}>button</button>
         <div>{this.state.hoge}</div>
         <div>
@@ -75,7 +79,11 @@ export default class Top extends React.Component<Props, State> {
             <div>{datas[key].name}</div>
           ))}
         </div>
-        <Form onSubmit={this.handleSubmitClick} buttonMsg="ボケる" />
+        <Form
+          onChange={this.handleInputChange}
+          onClick={this.handleSubmitClick}
+          buttonMsg="ボケる"
+        />
       </div>
     );
   }

@@ -3,16 +3,17 @@ import classnames from "classnames";
 
 type Props = {
   classname?: string;
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onClick: () => void;
+  onChange: (event: React.FormEvent<HTMLInputElement>) => void;
   buttonMsg: string;
 };
 
-const Form: React.FC<Props> = ({ classname, onSubmit, buttonMsg }) => {
+const Form: React.FC<Props> = ({ classname, onClick, onChange, buttonMsg }) => {
   return (
-    <form className={classnames("Form", classname)} onSubmit={onSubmit}>
-      <input type="text" />
-      <button type="submit">{buttonMsg}</button>
-    </form>
+    <div className={classnames("Form", classname)}>
+      <input type="text" onChange={onChange} />
+      <button onClick={onClick}>{buttonMsg}</button>
+    </div>
   );
 };
 

@@ -5,4 +5,6 @@ export default {
   title: "atoms/Form"
 };
 
-export const form = () => <Form onSubmit={() => {}} buttonMsg="submit" />;
+export const form = () => (
+  <Form onChange={() => {}} onClick={() => {}} buttonMsg="submit" />
+);
