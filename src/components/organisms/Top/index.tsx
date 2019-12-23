@@ -3,16 +3,15 @@ import axios from "axios";
 import { firebaseDb } from "../../../firebase/index";
 import Form from "../../atoms/Form";
 
-type Sample = {
-  ID: number;
-  name: string;
-};
-
 type Props = {};
 
 type State = {
   hoge: any;
-  datas: Sample[];
+  datas: {
+    [key: string]: {
+      name: string;
+    };
+  };
 };
 
 type GetHoge = {
@@ -24,7 +23,7 @@ export default class Top extends React.Component<Props, State> {
     super(props);
     this.state = {
       hoge: "hoge",
-      datas: []
+      datas: {}
     };
   }
 
@@ -41,21 +40,9 @@ export default class Top extends React.Component<Props, State> {
 
   handleSubmitClick = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert("sample/にデータを追加します。");
     let ref = firebaseDb.ref("sample/");
-    ref.set({
-      1: {
-        ID: 1,
-        name: "taro"
-      },
-      2: {
-        ID: 2,
-        name: "hanako"
-      }
-    });
-    ref.child("3").set({
-      ID: 3,
-      name: "fusako"
+    ref.push({
+      name: "hisashi"
     });
   };
 
@@ -73,20 +60,21 @@ export default class Top extends React.Component<Props, State> {
   }
 
   render() {
-    if (this.state.datas && this.state.datas.length === 0) {
+    const datas = this.state.datas;
+    if (Object.keys(datas).length === 0) {
       this.getFireData();
     }
     return (
       <div className="Top">
+        {console.log("dataはこんなかんじ")}
+        {console.log(datas)}
         <button onClick={this.handleButtonClick}>button</button>
         <div>{this.state.hoge}</div>
-        {this.state.datas && this.state.datas.length !== 0 && (
-          <div>
-            {this.state.datas.map(data => {
-              return <div>{data.name}</div>;
-            })}
-          </div>
-        )}
+        <div>
+          {Object.keys(datas).map(key => (
+            <div>{datas[key].name}</div>
+          ))}
+        </div>
         <Form onSubmit={this.handleSubmitClick} buttonMsg="ボケる" />
       </div>
     );
