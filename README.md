@@ -1,2 +1,2 @@
 ## What
-- Reactで作成する大喜利アプリ
+- React/Firebaseで作成する大喜利アプリ
