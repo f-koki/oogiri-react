@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { firebaseApp } from "../../../firebase";
 import { History } from "history";
+import { RootContext } from "../App";
 
 type Props = {
   history: History
@@ -12,7 +13,8 @@ const Login: React.FC<Props> = (props: Props) => {
 
   const handleClickLogin = async () => {
     try {
-      await firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      const userCredential = await firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      // TODO: user情報をクッキー or storeにセットする
       props.history.push('/')
     } catch (error) {
       alert(error)
@@ -28,9 +30,11 @@ const Login: React.FC<Props> = (props: Props) => {
     }
   }
 
+  const { name } = useContext(RootContext)
+
   return (
     <div className="Login">
-      <h1>ログイン画面</h1>
+      <h1>ログイン画面{name}</h1>
       <div>
         <label htmlFor="email">Email</label>
         <input id="email" type="text" value={email} onChange={e => { setEmail(e.currentTarget.value) }} />
