@@ -36,7 +36,7 @@ const Login: React.FC<Props> = (props: Props) => {
 
   return (
     <div className="Login">
-      {!store.hoge && updateState("hoge", "fuga")}
+      {!store.hoge && updateState("hoge", "hene")}
       {console.log(store)}
       <h1>ログイン画面</h1>
       <div>
