@@ -2,6 +2,7 @@ import React, { useState, useContext } from "react";
 import { firebaseApp } from "../../../firebase";
 import { History } from "history";
 import { RootContext } from "../App";
+import Button from "@material-ui/core/Button"
 
 type Props = {
   history: History;
@@ -60,6 +61,7 @@ const Login: React.FC<Props> = (props: Props) => {
         />
         <div onClick={handleClickLogin}>Login</div>
         <div onClick={handleClickSignUp}>Sign Up</div>
+        <Button variant="contained" color="primary">Login</Button>
       </div>
     </div>
   );

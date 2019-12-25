@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.8.1",
+    "@material-ui/icons": "^4.5.1",
     "@storybook/cli": "^5.2.8",
     "@types/classnames": "^2.2.9",
     "@types/firebase": "^3.2.1",
