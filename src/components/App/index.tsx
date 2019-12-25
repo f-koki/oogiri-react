@@ -31,6 +31,7 @@ class App extends React.Component<Props, Store> {
   render() {
     return (
       <ThemeProvider theme={theme}>
+        {/* TODO: Boxも利用する */}
         <RootContext.Provider
           value={{ store: this.state, updateState: this.updateState }}
         >

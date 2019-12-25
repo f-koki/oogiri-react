@@ -1,5 +1,5 @@
 import React, { useReducer } from "react";
-import { Button, Paper } from "@material-ui/core";
+import { Button, Paper, Card, Typography } from "@material-ui/core";
 import FloatingButton from "../../atoms/FloatingButton";
 
 type Props = {};
@@ -26,11 +26,17 @@ const Answer: React.FC<Props> = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div className="Answer">
+      {/* TODO: お題を表示 */}
+      <Paper style={{ marginRight: 20, marginLeft: 20 }}>
+        <Typography variant="body1">
+          this is the message
+        </Typography>
+      </Paper>
       <Button color="secondary" variant="outlined" onClick={() => dispatch({ type: 'reset', payload: 0 })}>reset</Button>
       <Button color="secondary" variant="outlined" onClick={() => { dispatch({ type: 'increment' }) }}>+</Button>
       <Button color="secondary" variant="outlined" onClick={() => { dispatch({ type: 'decrement' }) }}>-</Button>
       <Paper className="count-display" variant="elevation">{state.count}</Paper>
-      <FloatingButton onClick={()=>{}} />
+      <FloatingButton onClick={() => { }} />
     </div>
   );
 }
