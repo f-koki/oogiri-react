@@ -2,18 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { firebaseDb } from "../../../firebase/index";
 import Form from "../../atoms/Form";
+import { Datas, GetHoge } from "../../../type";
 
 type Props = {};
-
-type Datas = {
-  [key: string]: {
-    name: string;
-  };
-}
-
-type GetHoge = {
-  api: string;
-};
 
 const Top: React.FC<Props> = () => {
   const [hoge, setHoge] = useState<any>("hoge")
@@ -65,7 +56,7 @@ const Top: React.FC<Props> = () => {
       <Form
         onChange={handleInputChange}
         onClick={handleSubmitClick}
-        buttonMsg="ボケる"
+        buttonMsg="boke"
       />
     </div>
   );
