@@ -4,6 +4,7 @@ import { History } from "history";
 import { RootContext } from "../../App";
 import Button from "@material-ui/core/Button";
 import classnames from "classnames";
+import { TextField } from "@material-ui/core";
 
 type Props = {
   history: History;
@@ -39,8 +40,10 @@ const Login: React.FC<Props> = (props: Props) => {
   return (
     <div className="Login">
       {!store.hoge && updateState("hoge", "hene")}
-      {console.log(store)}
       <div>
+        <form noValidate autoComplete="off">
+          <TextField id="standard-basic" label="email" color="secondary" />
+        </form>
         <label htmlFor="email">Email</label>
         <input
           id="email"
