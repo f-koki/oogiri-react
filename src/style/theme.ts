@@ -8,6 +8,19 @@ const theme = createMuiTheme({
     secondary: {
       main: '#e6df44'
     },
+  },
+  overrides: {
+    MuiFab: {
+      root: {
+        margin: 0,
+        top: "auto",
+        right: 20,
+        bottom: 20,
+        left: "auto",
+        position: "fixed",
+        zIndex: 1000,
+      }
+    }
   }
 })
 
