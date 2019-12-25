@@ -1,9 +1,9 @@
 import React from "react";
-import Header from "../../molecules/Header";
-import Contents from "../Contents";
-import Footer from "../../molecules/Footer";
+import Header from "../molecules/Header";
+import Contents from "../organisms/Contents";
+import Footer from "../molecules/Footer";
 import { ThemeProvider } from "@material-ui/core";
-import theme from '../../../style/theme';
+import theme from '../../style/theme';
 
 type Props = {};
 

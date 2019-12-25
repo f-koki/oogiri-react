@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useReducer } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import Top from "../Top";
-import Login from "../Login";
-import Answer from "../Answer";
+import Top from "../../pages/Top";
+import Login from "../../pages/Login";
+import Answer from "../../pages/Answer";
 import { firebaseApp } from '../../../firebase'
 
 type Props = {};

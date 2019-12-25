@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
-import { firebaseApp } from "../../../firebase";
+import { firebaseApp } from "../../../../firebase";
 import { History } from "history";
-import { RootContext } from "../App";
+import { RootContext } from "../../../App";
 import Button from "@material-ui/core/Button"
 import classnames from "classnames";
 
