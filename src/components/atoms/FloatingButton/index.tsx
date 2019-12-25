@@ -8,7 +8,7 @@ type Props = {
   onClick: () => void;
 };
 
-const FloatButton: React.FC<Props> = ({ classname, onClick }) => {
+const FloatingButton: React.FC<Props> = ({ classname, onClick }) => {
   return (
     <Fab onClick={onClick} className={classnames("Fab", classname)} aria-label="edit" color="secondary">
       <EditIcon />
@@ -16,4 +16,4 @@ const FloatButton: React.FC<Props> = ({ classname, onClick }) => {
   );
 };
 
-export default FloatButton;
+export default FloatingButton;

@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import { Button, Paper } from "@material-ui/core";
-import FloatButton from "../../atoms/FloatButton";
+import FloatingButton from "../../atoms/FloatingButton";
 
 type Props = {};
 
@@ -30,7 +30,7 @@ const Answer: React.FC<Props> = () => {
       <Button color="secondary" variant="outlined" onClick={() => { dispatch({ type: 'increment' }) }}>+</Button>
       <Button color="secondary" variant="outlined" onClick={() => { dispatch({ type: 'decrement' }) }}>-</Button>
       <Paper className="count-display" variant="elevation">{state.count}</Paper>
-      <FloatButton onClick={()=>{}} />
+      <FloatingButton onClick={()=>{}} />
     </div>
   );
 }
