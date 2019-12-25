@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { firebaseApp } from "../../../firebase";
 import { History } from "history";
 import { RootContext } from "../../App";
-import Button from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button";
 import classnames from "classnames";
 
 type Props = {
@@ -40,7 +40,6 @@ const Login: React.FC<Props> = (props: Props) => {
     <div className="Login">
       {!store.hoge && updateState("hoge", "hene")}
       {console.log(store)}
-      <h1>ログイン画面</h1>
       <div>
         <label htmlFor="email">Email</label>
         <input
@@ -60,8 +59,22 @@ const Login: React.FC<Props> = (props: Props) => {
             setPassword(e.currentTarget.value);
           }}
         />
-        <Button onClick={handleClickLogin} className={classnames('Button', 'login')} variant="outlined" color="secondary">Login</Button>
-        <Button onClick={handleClickSignUp} className={classnames('Button', 'signup')} variant="outlined" color="secondary">Sign Up</Button>
+        <Button
+          onClick={handleClickLogin}
+          className={classnames("Button", "login")}
+          variant="outlined"
+          color="secondary"
+        >
+          Login
+        </Button>
+        <Button
+          onClick={handleClickSignUp}
+          className={classnames("Button", "signup")}
+          variant="outlined"
+          color="secondary"
+        >
+          Sign Up
+        </Button>
       </div>
     </div>
   );

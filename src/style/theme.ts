@@ -1,13 +1,13 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme } from "@material-ui/core/styles";
 
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#011a27'
+      main: "#011a27"
     },
     secondary: {
-      main: '#e6df44'
-    },
+      main: "#e6df44"
+    }
   },
   overrides: {
     MuiFab: {
@@ -18,10 +18,10 @@ const theme = createMuiTheme({
         bottom: 20,
         left: "auto",
         position: "fixed",
-        zIndex: 1000,
+        zIndex: 1000
       }
     }
   }
-})
+});
 
-export default theme
+export default theme;

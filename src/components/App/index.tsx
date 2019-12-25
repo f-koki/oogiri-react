@@ -2,8 +2,8 @@ import React from "react";
 import Header from "../molecules/Header";
 import Contents from "../organisms/Contents";
 import Footer from "../molecules/Footer";
-import { ThemeProvider } from "@material-ui/core";
-import theme from '../../style/theme';
+import { ThemeProvider, Box } from "@material-ui/core";
+import theme from "../../style/theme";
 
 type Props = {};
 
@@ -37,7 +37,9 @@ class App extends React.Component<Props, Store> {
         >
           <div className="wrapper">
             <Header />
-            <Contents />
+            <Box m={2}>
+              <Contents />
+            </Box>
             <Footer />
           </div>
         </RootContext.Provider>
