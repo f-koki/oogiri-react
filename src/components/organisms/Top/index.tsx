@@ -3,6 +3,7 @@ import axios from "axios";
 import { firebaseDb } from "../../../firebase/index";
 import Form from "../../atoms/Form";
 import { Datas, GetHoge } from "../../../type";
+import { Button } from "@material-ui/core";
 
 type Props = {};
 
@@ -46,7 +47,7 @@ const Top: React.FC<Props> = () => {
 
   return (
     <div className="Top">
-      <button onClick={handleButtonClick}>button</button>
+      <Button onClick={handleButtonClick} variant="contained">button</Button>
       <div>{hoge}</div>
       <div>
         {Object.keys(datas).map(key => (

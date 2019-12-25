@@ -1,5 +1,6 @@
 import React from "react";
 import classnames from "classnames";
+import { Button } from "@material-ui/core";
 
 type Props = {
   classname?: string;
@@ -12,7 +13,7 @@ const Form: React.FC<Props> = ({ classname, onClick, onChange, buttonMsg }) => {
   return (
     <div className={classnames("Form", classname)}>
       <input type="text" onChange={onChange} />
-      <button onClick={onClick}>{buttonMsg}</button>
+      <Button onClick={onClick} variant="contained">{buttonMsg}</Button>
     </div>
   );
 };

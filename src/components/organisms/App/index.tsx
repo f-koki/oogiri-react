@@ -2,6 +2,8 @@ import React from "react";
 import Header from "../../molecules/Header";
 import Contents from "../Contents";
 import Footer from "../../molecules/Footer";
+import { ThemeProvider } from "@material-ui/core";
+import theme from '../../../style/theme';
 
 type Props = {};
 
@@ -28,15 +30,17 @@ class App extends React.Component<Props, Store> {
 
   render() {
     return (
-      <RootContext.Provider
-        value={{ store: this.state, updateState: this.updateState }}
-      >
-        <div className="wrapper">
-          <Header />
-          <Contents />
-          <Footer />
-        </div>
-      </RootContext.Provider>
+      <ThemeProvider theme={theme}>
+        <RootContext.Provider
+          value={{ store: this.state, updateState: this.updateState }}
+        >
+          <div className="wrapper">
+            <Header />
+            <Contents />
+            <Footer />
+          </div>
+        </RootContext.Provider>
+      </ThemeProvider>
     );
   }
 }

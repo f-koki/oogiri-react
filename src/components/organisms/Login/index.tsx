@@ -3,6 +3,7 @@ import { firebaseApp } from "../../../firebase";
 import { History } from "history";
 import { RootContext } from "../App";
 import Button from "@material-ui/core/Button"
+import classnames from "classnames";
 
 type Props = {
   history: History;
@@ -59,9 +60,8 @@ const Login: React.FC<Props> = (props: Props) => {
             setPassword(e.currentTarget.value);
           }}
         />
-        <div onClick={handleClickLogin}>Login</div>
-        <div onClick={handleClickSignUp}>Sign Up</div>
-        <Button variant="contained" color="primary">Login</Button>
+        <Button onClick={handleClickLogin} className={classnames('Button', 'login')} variant="outlined" color="secondary">Login</Button>
+        <Button onClick={handleClickSignUp} className={classnames('Button', 'signup')} variant="outlined" color="secondary">Sign Up</Button>
       </div>
     </div>
   );

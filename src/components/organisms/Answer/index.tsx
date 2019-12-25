@@ -1,4 +1,6 @@
 import React, { useReducer } from "react";
+import { Button, Paper } from "@material-ui/core";
+import FloatButton from "../../atoms/FloatButton";
 
 type Props = {};
 
@@ -24,10 +26,11 @@ const Answer: React.FC<Props> = () => {
   const [state, dispatch] = useReducer(reducer, initialState)
   return (
     <div className="Answer">
-      <button onClick={() => dispatch({ type: 'reset', payload: 0 })}>reset</button>
-      <button onClick={() => { dispatch({ type: 'increment' }) }}>+</button>
-      <button onClick={() => { dispatch({ type: 'decrement' }) }}>-</button>
-      {console.log(state)}
+      <Button color="secondary" variant="outlined" onClick={() => dispatch({ type: 'reset', payload: 0 })}>reset</Button>
+      <Button color="secondary" variant="outlined" onClick={() => { dispatch({ type: 'increment' }) }}>+</Button>
+      <Button color="secondary" variant="outlined" onClick={() => { dispatch({ type: 'decrement' }) }}>-</Button>
+      <Paper className="count-display" variant="elevation">{state.count}</Paper>
+      <FloatButton onClick={()=>{}} />
     </div>
   );
 }
