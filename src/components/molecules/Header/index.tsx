@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { AppBar, Toolbar, Button, IconButton, Grid } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
+import LoginDialog from "../../atoms/LoginDialog";
 
 const Header: React.FC = () => {
+  const handleLoginClick = () => {
+    setIsOpenLoginDialog(true);
+  };
+
+  const [isOpenLoginDialog, setIsOpenLoginDialog] = useState(false);
+
+  const handleLoginCancelClick = () => {
+    setIsOpenLoginDialog(false);
+  };
+
   return (
     <AppBar position="static">
       <Toolbar>
@@ -18,12 +29,21 @@ const Header: React.FC = () => {
             </IconButton>
           </Grid>
           <Grid item>
-            <Button variant="contained" color="secondary" aria-label="menu">
+            <Button
+              onClick={handleLoginClick}
+              variant="contained"
+              color="secondary"
+              aria-label="menu"
+            >
               Login
             </Button>
           </Grid>
         </Grid>
       </Toolbar>
+      <LoginDialog
+        onCancelClick={handleLoginCancelClick}
+        open={isOpenLoginDialog}
+      />
     </AppBar>
   );
 };
