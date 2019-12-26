@@ -21,6 +21,7 @@ const FloatingButton: React.FC<Props> = ({ classname, onClick }) => {
       className={classnames("Fab", classname)}
       aria-label="edit"
       style={style}
+      color="primary"
     >
       <EditIcon />
     </Fab>
