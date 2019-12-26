@@ -30,19 +30,19 @@ class App extends React.Component<Props, Store> {
 
   render() {
     return (
-      <ThemeProvider theme={theme}>
-        <RootContext.Provider
-          value={{ store: this.state, updateState: this.updateState }}
-        >
-          <div className="wrapper">
-            <Header />
-            <Box m={2}>
-              <Contents />
-            </Box>
-            <Footer />
-          </div>
-        </RootContext.Provider>
-      </ThemeProvider>
+      // <ThemeProvider theme={theme}>
+      <RootContext.Provider
+        value={{ store: this.state, updateState: this.updateState }}
+      >
+        <div className="wrapper">
+          <Header />
+          <Box m={2}>
+            <Contents />
+          </Box>
+          {/* <Footer /> */}
+        </div>
+      </RootContext.Provider>
+      // </ThemeProvider>
     );
   }
 }

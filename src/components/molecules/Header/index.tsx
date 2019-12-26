@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" color="primary">
       <Toolbar>
         <Grid
           justify="space-between"
@@ -24,7 +24,7 @@ const Header: React.FC = () => {
           spacing={2}
         >
           <Grid item>
-            <IconButton edge="start" aria-label="menu" color="secondary">
+            <IconButton edge="start" aria-label="menu">
               <MenuIcon />
             </IconButton>
           </Grid>
@@ -32,7 +32,6 @@ const Header: React.FC = () => {
             <Button
               onClick={handleLoginClick}
               variant="contained"
-              color="secondary"
               aria-label="menu"
             >
               Login

@@ -26,11 +26,7 @@ const Contents: React.FC = () => {
     <div className="contents">
       <Router history={history}>
         <Switch>
-          <Route
-            exact
-            path="/"
-            render={() => (auth ? <Top /> : <Redirect to="/login" />)}
-          />
+          <Route exact path="/" component={Top} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/answer" component={Answer} />
         </Switch>

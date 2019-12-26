@@ -1,29 +1,19 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { firebaseDb } from "../../../firebase/index";
 import Form from "../../atoms/Form";
-import { Datas, GetHoge } from "../../../type";
-import { Button } from "@material-ui/core";
+import { Datas } from "../../../type";
+import { Button, Box } from "@material-ui/core";
+import FloatingButton from "../../atoms/FloatingButton";
 
 type Props = {};
 
 const Top: React.FC<Props> = () => {
-  const [hoge, setHoge] = useState<any>("hoge")
-  const [datas, setDatas] = useState<Datas>({})
-  const [boke, setBoke] = useState<string>("")
-
-  const handleButtonClick = () => {
-    const server = "/api";
-    const main = async () => {
-      const res = await axios.get<GetHoge>(server);
-      setHoge(res.data.api)
-    };
-    main();
-  };
+  const [datas, setDatas] = useState<Datas>({});
+  const [boke, setBoke] = useState<string>("");
 
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
-    setBoke(event.currentTarget.value)
+    setBoke(event.currentTarget.value);
   };
 
   const handleSubmitClick = () => {
@@ -39,7 +29,7 @@ const Top: React.FC<Props> = () => {
       .on("value", snapshot => {
         snapshot.val() && setDatas(snapshot.val());
       });
-  }
+  };
 
   if (Object.keys(datas).length === 0) {
     getFireData();
@@ -47,20 +37,21 @@ const Top: React.FC<Props> = () => {
 
   return (
     <div className="Top">
-      <Button onClick={handleButtonClick} variant="contained">button</Button>
-      <div>{hoge}</div>
-      <div>
-        {Object.keys(datas).map(key => (
-          <div>{datas[key].name}</div>
-        ))}
-      </div>
-      <Form
+      {Object.keys(datas).map(key => (
+        <Box m={1}>
+          <Button variant="contained" fullWidth>
+            {datas[key].name}
+          </Button>
+        </Box>
+      ))}
+      {/* <Form
         onChange={handleInputChange}
         onClick={handleSubmitClick}
         buttonMsg="boke"
-      />
+      /> */}
+      <FloatingButton onClick={handleSubmitClick}></FloatingButton>
     </div>
   );
-}
+};
 
-export default Top
+export default Top;

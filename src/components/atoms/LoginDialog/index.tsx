@@ -6,14 +6,14 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import { Link } from "@material-ui/core";
+import { withRouter, RouteComponentProps } from "react-router-dom";
 
 type Props = {
   open: boolean;
   onCancelClick: () => void;
 };
 
-const LoginDialog: React.FC<Props> = props => {
+const LoginDialog: React.FC<Props & RouteComponentProps> = props => {
   useEffect(() => {
     setOpen(props.open);
   });
@@ -21,13 +21,14 @@ const LoginDialog: React.FC<Props> = props => {
   const [open, setOpen] = React.useState(false);
 
   const handleLoginClick = () => {
-    // props.history.push("/");
+    props.history.push("/");
+    setOpen(false);
   };
 
   return (
     <div>
       <Dialog
-        open={open}
+        open={props.open}
         onClose={props.onCancelClick}
         aria-labelledby="form-dialog-title"
       >
@@ -64,4 +65,4 @@ const LoginDialog: React.FC<Props> = props => {
   );
 };
 
-export default LoginDialog;
+export default withRouter(LoginDialog);

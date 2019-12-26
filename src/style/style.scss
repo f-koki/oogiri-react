@@ -9,25 +9,25 @@
 @import "../components/pages/Top/index";
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
-  display: block;
-  color: $moonYellow;
-  background-color: $midnightGray;
+  // font-family: Arial, Helvetica, sans-serif;
+  // display: block;
+  // color: $moonYellow;
+  // background-color: $midnightGray;
 
   #root {
-    background-color: $eveningBlue;
-    text-align: center;
-    margin: 0 auto;
-    max-width: 425px;
+    // background-color: $eveningBlue;
+    // text-align: center;
+    // margin: 0 auto;
+    // max-width: 425px;
   }
 
   .wrapper {
-    position: relative;
-    min-height: 100vh;
+    // position: relative;
+    // min-height: 100vh;
 
     .contents {
-      padding-top: $headerHeight;
-      padding-bottom: $footerHeight;
+      // padding-top: $headerHeight;
+      // padding-bottom: $footerHeight;
     }
   }
 }
