@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from "react";
 import { firebaseDb, firebaseApp } from "../../../firebase/index";
-import Form from "../../atoms/Form";
 import { Datas } from "../../../type";
 import { Button, Box } from "@material-ui/core";
 import FloatingButton from "../../atoms/FloatingButton";
+import { getThemeProps } from "@material-ui/styles";
+import { RouteComponentProps } from "react-router";
 
-type Props = {};
+type Props = RouteComponentProps;
 
-const Top: React.FC<Props> = () => {
+const Top: React.FC<Props> = props => {
   const [datas, setDatas] = useState<Datas>({});
   const [boke, setBoke] = useState<string>("");
 
-  useEffect(() => {
-    firebaseApp.auth().onAuthStateChanged(user => {
-      if (user) {
-        alert("ログイン中");
-      } else {
-        alert("非ログイン");
-      }
-    });
-  });
+  // useEffect(() => {
+  //   firebaseApp.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       alert("ログイン中");
+  //     } else {
+  //       alert("非ログイン");
+  //     }
+  //   });
+  // });
 
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -54,6 +55,12 @@ const Top: React.FC<Props> = () => {
           </Button>
         </Box>
       ))}
+      <Button
+        variant="contained"
+        onClick={() => props.history.push("/register")}
+      >
+        registerへ
+      </Button>
       <FloatingButton onClick={handleSubmitClick}></FloatingButton>
     </div>
   );

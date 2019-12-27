@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Dialog from "@material-ui/core/Dialog";
@@ -20,22 +20,20 @@ const styles = (theme: Theme) =>
 type OwnProps = {
   open: boolean;
   onCancelClick: () => void;
+  onLoginClick: () => void;
+  onChangeEmail: React.Dispatch<React.SetStateAction<string>>;
+  onChangePassword: React.Dispatch<React.SetStateAction<string>>;
   onRegisterClick: () => void;
 };
 
 type Props = OwnProps & RouteComponentProps & WithStyles<typeof styles>;
 
 const LoginDialog: React.FC<Props> = props => {
-  useEffect(() => {
-    setOpen(props.open);
-  });
+  // useEffect(() => {
+  //   setOpen(props.open);
+  // });
 
-  const [open, setOpen] = React.useState(false);
-
-  const handleLoginClick = () => {
-    props.history.push("/");
-    setOpen(false);
-  };
+  // const [open, setOpen] = React.useState(false);
 
   return (
     <div>
@@ -55,6 +53,9 @@ const LoginDialog: React.FC<Props> = props => {
             type="email"
             fullWidth
             required
+            onChange={e => {
+              props.onChangeEmail(e.currentTarget.value);
+            }}
           />
           <TextField
             margin="dense"
@@ -63,13 +64,16 @@ const LoginDialog: React.FC<Props> = props => {
             type="password"
             fullWidth
             required
+            onChange={e => {
+              props.onChangePassword(e.currentTarget.value);
+            }}
           />
         </DialogContent>
         <DialogActions>
           <Button onClick={props.onCancelClick} color="primary">
             キャンセル
           </Button>
-          <Button onClick={handleLoginClick} color="primary">
+          <Button onClick={props.onLoginClick} color="primary">
             ログイン
           </Button>
         </DialogActions>

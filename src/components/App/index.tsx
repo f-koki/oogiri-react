@@ -35,11 +35,7 @@ class App extends React.Component<Props, Store> {
         value={{ store: this.state, updateState: this.updateState }}
       >
         <div className="wrapper">
-          <Header />
-          <Box m={2}>
-            <Contents />
-          </Box>
-          {/* <Footer /> */}
+          <Contents />
         </div>
       </RootContext.Provider>
       // </ThemeProvider>
