@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { firebaseDb } from "../../../firebase/index";
+import React, { useState, useEffect } from "react";
+import { firebaseDb, firebaseApp } from "../../../firebase/index";
 import Form from "../../atoms/Form";
 import { Datas } from "../../../type";
 import { Button, Box } from "@material-ui/core";
@@ -10,6 +10,16 @@ type Props = {};
 const Top: React.FC<Props> = () => {
   const [datas, setDatas] = useState<Datas>({});
   const [boke, setBoke] = useState<string>("");
+
+  useEffect(() => {
+    firebaseApp.auth().onAuthStateChanged(user => {
+      if (user) {
+        alert("ログイン中");
+      } else {
+        alert("非ログイン");
+      }
+    });
+  });
 
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
@@ -44,11 +54,6 @@ const Top: React.FC<Props> = () => {
           </Button>
         </Box>
       ))}
-      {/* <Form
-        onChange={handleInputChange}
-        onClick={handleSubmitClick}
-        buttonMsg="boke"
-      /> */}
       <FloatingButton onClick={handleSubmitClick}></FloatingButton>
     </div>
   );

@@ -54,6 +54,7 @@ const LoginDialog: React.FC<Props> = props => {
             label="Email"
             type="email"
             fullWidth
+            required
           />
           <TextField
             margin="dense"
@@ -61,6 +62,7 @@ const LoginDialog: React.FC<Props> = props => {
             label="Password"
             type="password"
             fullWidth
+            required
           />
         </DialogContent>
         <DialogActions>

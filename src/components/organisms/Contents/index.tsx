@@ -5,6 +5,7 @@ import Login from "../../pages/Login";
 import Answer from "../../pages/Answer";
 import { firebaseApp } from "../../../firebase";
 import history from "./history";
+import Register from "../../pages/Register";
 
 const Contents: React.FC = () => {
   const [auth, setAuth] = useState<boolean>(false);
@@ -28,6 +29,7 @@ const Contents: React.FC = () => {
         <Switch>
           <Route exact path="/" component={Top} />
           <Route exact path="/login" component={Login} />
+          <Route exact path="/register" component={Register} />
           <Route exact path="/answer" component={Answer} />
         </Switch>
       </Router>
