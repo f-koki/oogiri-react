@@ -7,13 +7,25 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { withRouter, RouteComponentProps } from "react-router-dom";
+import { withStyles, createStyles, WithStyles, Link } from "@material-ui/core";
+import { Theme } from "@material-ui/core/styles/createMuiTheme";
 
-type Props = {
+const styles = (theme: Theme) =>
+  createStyles({
+    noRegister: {
+      textAlign: "right"
+    }
+  });
+
+type OwnProps = {
   open: boolean;
   onCancelClick: () => void;
+  onRegisterClick: () => void;
 };
 
-const LoginDialog: React.FC<Props & RouteComponentProps> = props => {
+type Props = OwnProps & RouteComponentProps & WithStyles<typeof styles>;
+
+const LoginDialog: React.FC<Props> = props => {
   useEffect(() => {
     setOpen(props.open);
   });
@@ -59,10 +71,17 @@ const LoginDialog: React.FC<Props & RouteComponentProps> = props => {
             ログイン
           </Button>
         </DialogActions>
-        <DialogContentText>登録がまだの方はこちら</DialogContentText>
+        <DialogContent>
+          <DialogContentText
+            className={props.classes.noRegister}
+            color="textSecondary"
+          >
+            <Link onClick={props.onRegisterClick}>登録がまだの方はこちら</Link>
+          </DialogContentText>
+        </DialogContent>
       </Dialog>
     </div>
   );
 };
 
-export default withRouter(LoginDialog);
+export default withStyles(styles)(withRouter(LoginDialog));
