@@ -1,7 +1,6 @@
-import React, { useState, useEffect, useReducer } from "react";
-import { Route, Switch, Redirect, Router } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Route, Switch, Router } from "react-router-dom";
 import Top from "../../pages/Top";
-import Login from "../../pages/Login";
 import Answer from "../../pages/Answer";
 import { firebaseApp } from "../../../firebase";
 import history from "./history";
@@ -28,7 +27,6 @@ const Contents: React.FC = () => {
       <Router history={history}>
         <Switch>
           <Route exact path="/" component={Top} />
-          <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <Route exact path="/answer" component={Answer} />
         </Switch>
