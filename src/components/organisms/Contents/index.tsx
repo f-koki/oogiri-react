@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, Router } from "react-router-dom";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Top from "../../pages/Top";
 import Answer from "../../pages/Answer";
 import { firebaseApp } from "../../../firebase";
@@ -27,7 +27,7 @@ const Contents: React.FC = () => {
 
   return (
     <div className="contents">
-      <Router history={history}>
+      <BrowserRouter>
         <Header />
         <Box className="contents" m={2}>
           <Switch>
@@ -37,7 +37,7 @@ const Contents: React.FC = () => {
           </Switch>
         </Box>
         {/* <Footer /> */}
-      </Router>
+      </BrowserRouter>
     </div>
   );
 };

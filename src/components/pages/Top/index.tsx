@@ -4,13 +4,12 @@ import { Datas } from "../../../type";
 import { Button, Box } from "@material-ui/core";
 import FloatingButton from "../../atoms/FloatingButton";
 import { getThemeProps } from "@material-ui/styles";
-import { RouteComponentProps } from "react-router";
+import { useHistory } from "react-router-dom";
 
-type Props = RouteComponentProps;
-
-const Top: React.FC<Props> = props => {
+const Top: React.FC = () => {
   const [datas, setDatas] = useState<Datas>({});
   const [boke, setBoke] = useState<string>("");
+  const history = useHistory();
 
   // useEffect(() => {
   //   firebaseApp.auth().onAuthStateChanged(user => {
@@ -55,10 +54,7 @@ const Top: React.FC<Props> = props => {
           </Button>
         </Box>
       ))}
-      <Button
-        variant="contained"
-        onClick={() => props.history.push("/register")}
-      >
+      <Button variant="contained" onClick={() => history.push("/register")}>
         registerへ
       </Button>
       <FloatingButton onClick={handleSubmitClick}></FloatingButton>
