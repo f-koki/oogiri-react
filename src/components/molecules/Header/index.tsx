@@ -2,16 +2,15 @@ import React, { useState } from "react";
 import { AppBar, Toolbar, Button, IconButton, Grid } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import LoginDialog from "../../atoms/LoginDialog";
-import { RouteComponentProps, withRouter } from "react-router";
+import { withRouter, useHistory } from "react-router";
 import { firebaseApp } from "../../../firebase";
 import firebase from "firebase";
 
-type Props = RouteComponentProps;
-
-const Header: React.FC<Props> = props => {
+const Header: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isOpenLoginDialog, setIsOpenLoginDialog] = useState(false);
+  const history = useHistory();
 
   // 右上のログインボタン
   const handleShowLoginClick = () => {
@@ -30,7 +29,7 @@ const Header: React.FC<Props> = props => {
         setIsOpenLoginDialog(false);
       })
       .then(() => {
-        props.history.push("/");
+        history.push("/");
       })
       .catch(e => {
         alert("ログインできません");
@@ -46,7 +45,7 @@ const Header: React.FC<Props> = props => {
   // ダイアログの中の登録ボタン
   const handleRegisterClick = () => {
     setIsOpenLoginDialog(false);
-    props.history.push("/register");
+    history.push("/register");
   };
 
   return (

@@ -2,14 +2,13 @@ import React, { useState, useContext } from "react";
 import Button from "@material-ui/core/Button";
 import classnames from "classnames";
 import { firebaseApp } from "../../../firebase";
-import { RouteComponentProps } from "react-router";
+import { RouteComponentProps, useHistory } from "react-router";
 import { Typography, Box, TextField } from "@material-ui/core";
 
-type Props = RouteComponentProps;
-
-const Register: React.FC<Props> = (props: Props) => {
+const Register: React.FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const history = useHistory();
 
   const handleClickSignUp = async () => {
     try {
@@ -17,7 +16,7 @@ const Register: React.FC<Props> = (props: Props) => {
         .auth()
         .createUserWithEmailAndPassword(email, password);
       // userCredential.user
-      props.history.push("/");
+      history.push("/");
     } catch (error) {
       alert(error);
     }
