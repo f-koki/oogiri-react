@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, Router } from "react-router-dom";
 import Top from "../../pages/Top";
 import Answer from "../../pages/Answer";
 import { firebaseApp } from "../../../firebase";
