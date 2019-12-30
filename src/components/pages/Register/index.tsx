@@ -1,8 +1,7 @@
 import React, { useState, useContext } from "react";
 import Button from "@material-ui/core/Button";
-import classnames from "classnames";
 import { firebaseApp } from "../../../firebase";
-import { RouteComponentProps, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import { Typography, Box, TextField } from "@material-ui/core";
 
 const Register: React.FC = () => {

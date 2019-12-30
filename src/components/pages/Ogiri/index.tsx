@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { firebaseDb } from "../../../firebase/index";
 import { Datas } from "../../../type";
-import { Button, Box } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import FloatingButton from "../../atoms/FloatingButton";
 import BokeDialog from "../../atoms/BokeDialog";
+import BokeList from "../../molecules/BokeList";
+import Odai from "../../molecules/Odai";
 
 const Ogiri: React.FC = () => {
   const [datas, setDatas] = useState<Datas>({});
@@ -38,13 +40,9 @@ const Ogiri: React.FC = () => {
 
   return (
     <Box className="Ogiri">
-      {Object.keys(datas).map(key => (
-        <Box m={2}>
-          <Button variant="outlined" color="secondary" fullWidth>
-            {datas[key].name}
-          </Button>
-        </Box>
-      ))}
+      {/* TODO: お題を登録できるようにする */}
+      <Odai odai="こんな傘は嫌だ" />
+      <BokeList datas={datas} />
       <FloatingButton
         onClick={() => setIsBokeDialogShow(true)}
       ></FloatingButton>
