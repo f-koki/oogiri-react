@@ -3,7 +3,6 @@ import { firebaseDb } from "../../../firebase/index";
 import { Datas } from "../../../type";
 import { Button, Box } from "@material-ui/core";
 import FloatingButton from "../../atoms/FloatingButton";
-import { useHistory } from "react-router-dom";
 import BokeDialog from "../../atoms/BokeDialog";
 
 const Top: React.FC = () => {
@@ -11,14 +10,16 @@ const Top: React.FC = () => {
   const [boke, setBoke] = useState<string>("");
   const [isBokeDialogShow, setIsBokeDialogShow] = useState<boolean>(false);
 
-  const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setBoke(event.currentTarget.value);
-  };
-
   const handleBokeClick = () => {
     let ref = firebaseDb.ref("sample/");
-    ref.push({ name: boke });
+    ref
+      .push({ name: boke })
+      .then(() => {
+        setIsBokeDialogShow(false);
+      })
+      .catch(e => {
+        alert(e);
+      });
   };
 
   const getFireData = () => {
