@@ -34,6 +34,7 @@ const BokeDialog: React.FC<Props> = props => {
         open={props.open}
         onClose={props.onCancelClick}
         aria-labelledby="form-dialog-title"
+        fullWidth
       >
         <DialogTitle id="form-dialog-title">ボケる</DialogTitle>
         <DialogContent>
