@@ -37,10 +37,10 @@ const Ogiri: React.FC = () => {
   }
 
   return (
-    <div className="Ogiri">
+    <Box className="Ogiri">
       {Object.keys(datas).map(key => (
         <Box m={1}>
-          <Button variant="contained" fullWidth>
+          <Button variant="outlined" color="secondary" fullWidth>
             {datas[key].name}
           </Button>
         </Box>
@@ -55,7 +55,7 @@ const Ogiri: React.FC = () => {
         onCancelClick={() => setIsBokeDialogShow(false)}
         onChangeBoke={setBoke}
       />
-    </div>
+    </Box>
   );
 };
 

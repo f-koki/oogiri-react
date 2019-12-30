@@ -1,12 +1,22 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 
+export enum Color {
+  midnightBlue = "#011a27",
+  eveningBlue = "#063852",
+  oceanBlue = "#196186",
+  moonYellow = "#e6df44",
+  sunshineOrange = "#f0810f",
+  midnightGray = "#32393c",
+  eveningGray = "#6c7b81"
+}
+
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: "#011a27"
+      main: Color.midnightBlue
     },
     secondary: {
-      main: "#e6df44"
+      main: Color.moonYellow
     }
   },
   overrides: {

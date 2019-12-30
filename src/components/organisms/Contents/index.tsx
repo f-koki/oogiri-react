@@ -4,15 +4,14 @@ import Top from "../../pages/Top";
 import Answer from "../../pages/Answer";
 import { firebaseApp } from "../../../firebase";
 import Register from "../../pages/Register";
-import { createBrowserHistory } from "history";
 import { Box } from "@material-ui/core";
 import Header from "../../molecules/Header";
 import Ogiri from "../../pages/Ogiri";
+import { Color } from "../../../style/theme";
 
 const Contents: React.FC = () => {
   const [auth, setAuth] = useState<boolean>(false);
   const [user, setUser] = useState<firebase.User | null>(null);
-  const history = createBrowserHistory();
 
   useEffect(() => {
     firebaseApp.auth().onAuthStateChanged(user => {
@@ -27,10 +26,16 @@ const Contents: React.FC = () => {
   });
 
   return (
-    <div className="contents">
+    <Box
+      className="contents"
+      style={{
+        backgroundColor: Color.eveningBlue,
+        color: Color.moonYellow
+      }}
+    >
       <BrowserRouter>
         <Header />
-        <Box className="contents" m={2}>
+        <Box>
           <Switch>
             <Route exact path="/" component={Top} />
             <Route exact path="/register" component={Register} />
@@ -40,7 +45,7 @@ const Contents: React.FC = () => {
         </Box>
         {/* <Footer /> */}
       </BrowserRouter>
-    </div>
+    </Box>
   );
 };
 

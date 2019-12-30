@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "../molecules/Header";
 import Contents from "../organisms/Contents";
 import Footer from "../molecules/Footer";
 import { ThemeProvider, Box, CssBaseline } from "@material-ui/core";
@@ -30,17 +29,15 @@ class App extends React.Component<Props, Store> {
 
   render() {
     return (
-      // <ThemeProvider theme={theme}>
-      <RootContext.Provider
-        value={{ store: this.state, updateState: this.updateState }}
-      >
-        <CssBaseline>
-          <div className="wrapper">
+      <ThemeProvider theme={theme}>
+        <RootContext.Provider
+          value={{ store: this.state, updateState: this.updateState }}
+        >
+          <CssBaseline>
             <Contents />
-          </div>
-        </CssBaseline>
-      </RootContext.Provider>
-      // </ThemeProvider>
+          </CssBaseline>
+        </RootContext.Provider>
+      </ThemeProvider>
     );
   }
 }
