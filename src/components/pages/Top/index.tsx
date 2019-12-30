@@ -26,7 +26,7 @@ const Top: React.FC = () => {
     let ref = firebaseDb.ref("sample/");
     ref
       .orderByKey()
-      .limitToFirst(10)
+      .limitToFirst(30)
       .on("value", snapshot => {
         snapshot.val() && setDatas(snapshot.val());
       });
