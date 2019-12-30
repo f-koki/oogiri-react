@@ -39,7 +39,7 @@ const Ogiri: React.FC = () => {
   return (
     <Box className="Ogiri">
       {Object.keys(datas).map(key => (
-        <Box m={1}>
+        <Box m={2}>
           <Button variant="outlined" color="secondary" fullWidth>
             {datas[key].name}
           </Button>

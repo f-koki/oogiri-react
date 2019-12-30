@@ -49,6 +49,11 @@ const BokeDialog: React.FC<Props> = props => {
             onChange={e => {
               props.onChangeBoke(e.currentTarget.value);
             }}
+            onKeyDown={e => {
+              if (e.keyCode === 13) {
+                props.onSubmitClick();
+              }
+            }}
           />
         </DialogContent>
         <DialogActions>
