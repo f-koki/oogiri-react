@@ -1,32 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { firebaseDb, firebaseApp } from "../../../firebase/index";
+import React, { useState } from "react";
+import { firebaseDb } from "../../../firebase/index";
 import { Datas } from "../../../type";
 import { Button, Box } from "@material-ui/core";
 import FloatingButton from "../../atoms/FloatingButton";
-import { getThemeProps } from "@material-ui/styles";
 import { useHistory } from "react-router-dom";
+import BokeDialog from "../../atoms/BokeDialog";
 
 const Top: React.FC = () => {
   const [datas, setDatas] = useState<Datas>({});
   const [boke, setBoke] = useState<string>("");
-  const history = useHistory();
-
-  // useEffect(() => {
-  //   firebaseApp.auth().onAuthStateChanged(user => {
-  //     if (user) {
-  //       alert("ログイン中");
-  //     } else {
-  //       alert("非ログイン");
-  //     }
-  //   });
-  // });
+  const [isBokeDialogShow, setIsBokeDialogShow] = useState<boolean>(false);
 
   const handleInputChange = (event: React.FormEvent<HTMLInputElement>) => {
     event.preventDefault();
     setBoke(event.currentTarget.value);
   };
 
-  const handleSubmitClick = () => {
+  const handleBokeClick = () => {
     let ref = firebaseDb.ref("sample/");
     ref.push({ name: boke });
   };
@@ -54,10 +44,16 @@ const Top: React.FC = () => {
           </Button>
         </Box>
       ))}
-      <Button variant="contained" onClick={() => history.push("/register")}>
-        registerへ
-      </Button>
-      <FloatingButton onClick={handleSubmitClick}></FloatingButton>
+      <FloatingButton
+        onClick={() => setIsBokeDialogShow(true)}
+      ></FloatingButton>
+      <BokeDialog
+        open={isBokeDialogShow}
+        odai="こんな傘は嫌だ"
+        onSubmitClick={handleBokeClick}
+        onCancelClick={() => setIsBokeDialogShow(false)}
+        onChangeBoke={setBoke}
+      />
     </div>
   );
 };

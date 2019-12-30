@@ -32,7 +32,7 @@ const Header: React.FC = () => {
         history.push("/");
       })
       .catch(e => {
-        alert("ログインできません");
+        alert("ログインできませんでした。時間を置いて再度お試しください。");
         alert(e.message);
       });
   };

@@ -7,7 +7,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { withRouter, RouteComponentProps } from "react-router-dom";
-import { withStyles, createStyles, WithStyles, Link } from "@material-ui/core";
+import { withStyles, createStyles, WithStyles } from "@material-ui/core";
 import { Theme } from "@material-ui/core/styles/createMuiTheme";
 
 const styles = (theme: Theme) =>
@@ -19,16 +19,15 @@ const styles = (theme: Theme) =>
 
 type OwnProps = {
   open: boolean;
+  odai: string;
   onCancelClick: () => void;
-  onLoginClick: () => void;
-  onChangeEmail: React.Dispatch<React.SetStateAction<string>>;
-  onChangePassword: React.Dispatch<React.SetStateAction<string>>;
-  onRegisterClick: () => void;
+  onSubmitClick: () => void;
+  onChangeBoke: React.Dispatch<React.SetStateAction<string>>;
 };
 
 type Props = OwnProps & RouteComponentProps & WithStyles<typeof styles>;
 
-const LoginDialog: React.FC<Props> = props => {
+const BokeDialog: React.FC<Props> = props => {
   return (
     <div>
       <Dialog
@@ -36,30 +35,19 @@ const LoginDialog: React.FC<Props> = props => {
         onClose={props.onCancelClick}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">ログイン</DialogTitle>
+        <DialogTitle id="form-dialog-title">ボケる</DialogTitle>
         <DialogContent>
-          <DialogContentText>ログインしてください。</DialogContentText>
+          <DialogContentText>{props.odai}</DialogContentText>
           <TextField
             autoFocus
             margin="dense"
-            id="email"
-            label="Email"
-            type="email"
+            id="boke"
+            label="Boke"
+            type="boke"
             fullWidth
             required
             onChange={e => {
-              props.onChangeEmail(e.currentTarget.value);
-            }}
-          />
-          <TextField
-            margin="dense"
-            id="password"
-            label="Password"
-            type="password"
-            fullWidth
-            required
-            onChange={e => {
-              props.onChangePassword(e.currentTarget.value);
+              props.onChangeBoke(e.currentTarget.value);
             }}
           />
         </DialogContent>
@@ -67,21 +55,13 @@ const LoginDialog: React.FC<Props> = props => {
           <Button onClick={props.onCancelClick} color="primary">
             キャンセル
           </Button>
-          <Button onClick={props.onLoginClick} color="primary">
-            ログイン
+          <Button onClick={props.onSubmitClick} color="primary">
+            ボケる
           </Button>
         </DialogActions>
-        <DialogContent>
-          <DialogContentText
-            className={props.classes.noRegister}
-            color="textSecondary"
-          >
-            <Link onClick={props.onRegisterClick}>登録がまだの方はこちら</Link>
-          </DialogContentText>
-        </DialogContent>
       </Dialog>
     </div>
   );
 };
 
-export default withStyles(styles)(withRouter(LoginDialog));
+export default withStyles(styles)(withRouter(BokeDialog));
