@@ -7,6 +7,7 @@ import Register from "../../pages/Register";
 import { createBrowserHistory } from "history";
 import { Box } from "@material-ui/core";
 import Header from "../../molecules/Header";
+import Ogiri from "../../pages/Ogiri";
 
 const Contents: React.FC = () => {
   const [auth, setAuth] = useState<boolean>(false);
@@ -34,6 +35,7 @@ const Contents: React.FC = () => {
             <Route exact path="/" component={Top} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/answer" component={Answer} />
+            <Route exact path="/ogiri" component={Ogiri} />
           </Switch>
         </Box>
         {/* <Footer /> */}
