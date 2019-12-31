@@ -62,15 +62,17 @@ const Header: React.FC = () => {
               <MenuIcon />
             </IconButton>
           </Grid>
-          <Grid item>
-            <Button
-              onClick={handleShowLoginClick}
-              variant="contained"
-              aria-label="menu"
-            >
-              Login
-            </Button>
-          </Grid>
+          {!firebaseApp.auth().currentUser && (
+            <Grid item>
+              <Button
+                onClick={handleShowLoginClick}
+                variant="contained"
+                aria-label="menu"
+              >
+                Login
+              </Button>
+            </Grid>
+          )}
         </Grid>
       </Toolbar>
       <LoginDialog
