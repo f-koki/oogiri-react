@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Top from "../../pages/Top";
 import Answer from "../../pages/Answer";
@@ -10,12 +10,14 @@ import Ogiri from "../../pages/Ogiri";
 import { Color } from "../../../style/theme";
 
 const Contents: React.FC = () => {
-  const [auth, setAuth] = useState<boolean>(false);
-  const [user, setUser] = useState<firebase.User>();
+  const [user, setUser] = useState<firebase.User | null>(
+    firebaseApp.auth().currentUser
+  );
 
   useEffect(() => {
-    const currentUser = firebaseApp.auth().currentUser;
-    currentUser && setUser(currentUser);
+    firebaseApp.auth().onAuthStateChanged(user => {
+      setUser(user);
+    });
   });
 
   return (

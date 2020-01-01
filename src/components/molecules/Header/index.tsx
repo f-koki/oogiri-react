@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { AppBar, Toolbar, Button, IconButton, Grid } from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import LoginDialog from "../../atoms/LoginDialog";
@@ -7,7 +7,7 @@ import { firebaseApp } from "../../../firebase";
 import firebase from "firebase";
 
 type Props = {
-  user?: firebase.User;
+  user?: firebase.User | null;
 };
 
 const Header: React.FC<Props> = (props: Props) => {
@@ -26,15 +26,11 @@ const Header: React.FC<Props> = (props: Props) => {
     firebaseApp
       .auth()
       .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-      .then(() => {
-        firebaseApp.auth().signInWithEmailAndPassword(email, password);
-      })
-      .then(() => {
-        setIsOpenLoginDialog(false);
-      })
-      .then(() => {
-        history.push("/");
-      })
+      .then(() =>
+        firebaseApp.auth().signInWithEmailAndPassword(email, password)
+      )
+      .then(() => setIsOpenLoginDialog(false))
+      .then(() => history.push("/"))
       .catch(e => {
         alert("ログインできませんでした。時間を置いて再度お試しください。");
         alert(e.message);
@@ -66,7 +62,7 @@ const Header: React.FC<Props> = (props: Props) => {
               <MenuIcon />
             </IconButton>
           </Grid>
-          {props.user && (
+          {!props.user && (
             <Grid item>
               <Button
                 onClick={handleShowLoginClick}

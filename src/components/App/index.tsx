@@ -8,6 +8,7 @@ type Props = {};
 
 type Store = {
   hoge?: string;
+  user?: firebase.User;
 };
 
 type ContextProps = {
