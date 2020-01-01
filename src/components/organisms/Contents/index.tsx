@@ -11,18 +11,11 @@ import { Color } from "../../../style/theme";
 
 const Contents: React.FC = () => {
   const [auth, setAuth] = useState<boolean>(false);
-  const [user, setUser] = useState<firebase.User | null>(null);
+  const [user, setUser] = useState<firebase.User>();
 
   useEffect(() => {
-    firebaseApp.auth().onAuthStateChanged(user => {
-      if (user) {
-        setAuth(true);
-        setUser(user);
-      } else {
-        setAuth(false);
-        setUser(null);
-      }
-    });
+    const currentUser = firebaseApp.auth().currentUser;
+    currentUser && setUser(currentUser);
   });
 
   return (
@@ -34,7 +27,7 @@ const Contents: React.FC = () => {
       }}
     >
       <BrowserRouter>
-        <Header />
+        <Header user={user} />
         <Box>
           <Switch>
             <Route exact path="/" component={Top} />

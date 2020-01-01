@@ -6,7 +6,11 @@ import { withRouter, useHistory } from "react-router";
 import { firebaseApp } from "../../../firebase";
 import firebase from "firebase";
 
-const Header: React.FC = () => {
+type Props = {
+  user?: firebase.User;
+};
+
+const Header: React.FC<Props> = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isOpenLoginDialog, setIsOpenLoginDialog] = useState(false);
@@ -62,7 +66,7 @@ const Header: React.FC = () => {
               <MenuIcon />
             </IconButton>
           </Grid>
-          {!firebaseApp.auth().currentUser && (
+          {props.user && (
             <Grid item>
               <Button
                 onClick={handleShowLoginClick}
@@ -87,4 +91,4 @@ const Header: React.FC = () => {
   );
 };
 
-export default withRouter(Header);
+export default Header;
