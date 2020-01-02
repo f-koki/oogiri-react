@@ -5,6 +5,7 @@ import LoginDialog from "../../atoms/LoginDialog";
 import { withRouter, useHistory } from "react-router";
 import { firebaseApp } from "../../../firebase";
 import firebase from "firebase";
+import Brightness3Icon from "@material-ui/icons/Brightness3";
 
 type Props = {
   user?: firebase.User | null;
@@ -62,7 +63,7 @@ const Header: React.FC<Props> = (props: Props) => {
               <MenuIcon />
             </IconButton>
           </Grid>
-          {!props.user && (
+          {!props.user ? (
             <Grid item>
               <Button
                 onClick={handleShowLoginClick}
@@ -72,6 +73,8 @@ const Header: React.FC<Props> = (props: Props) => {
                 Login
               </Button>
             </Grid>
+          ) : (
+            <Brightness3Icon />
           )}
         </Grid>
       </Toolbar>
