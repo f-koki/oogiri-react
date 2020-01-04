@@ -8,7 +8,7 @@ const Top: React.FC<Props> = () => {
     <Box textAlign="center">
       <div className="Top">
         <Typography variant="h4">Moon Ogiriとは</Typography>
-        <div></div>
+        <div>大喜利を楽しめるサイトです。</div>
       </div>
     </Box>
   );
