@@ -14,7 +14,6 @@ const Register: React.FC = () => {
       const userCredential = await firebaseApp
         .auth()
         .createUserWithEmailAndPassword(email, password);
-      // userCredential.user
       history.push("/");
     } catch (error) {
       alert(error);
