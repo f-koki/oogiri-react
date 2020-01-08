@@ -1,8 +1,16 @@
-import React, { useState, useContext } from "react";
-import { AppBar, Toolbar, Button, IconButton, Grid } from "@material-ui/core";
+import React, { useState, useContext, MouseEvent } from "react";
+import {
+  AppBar,
+  Toolbar,
+  Button,
+  IconButton,
+  Grid,
+  Menu,
+  MenuItem
+} from "@material-ui/core";
 import MenuIcon from "@material-ui/icons/Menu";
 import LoginDialog from "../../atoms/LoginDialog";
-import { withRouter, useHistory } from "react-router";
+import { useHistory } from "react-router";
 import { firebaseApp } from "../../../firebase";
 import firebase from "firebase";
 import Brightness3Icon from "@material-ui/icons/Brightness3";
@@ -15,6 +23,8 @@ const Header: React.FC<Props> = (props: Props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isOpenLoginDialog, setIsOpenLoginDialog] = useState(false);
+  const [anchorEl, setAnchorEl] = useState(null);
+
   const history = useHistory();
 
   // 右上のログインボタン
@@ -32,9 +42,9 @@ const Header: React.FC<Props> = (props: Props) => {
       )
       .then(() => setIsOpenLoginDialog(false))
       .then(() => history.push("/"))
-      .catch(e => {
+      .catch(error => {
         alert("ログインできませんでした。時間を置いて再度お試しください。");
-        alert(e.message);
+        alert(error.message);
       });
   };
 
@@ -47,6 +57,14 @@ const Header: React.FC<Props> = (props: Props) => {
   const handleRegisterClick = () => {
     setIsOpenLoginDialog(false);
     history.push("/register");
+  };
+
+  const handleMoonClick = (event: any) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMoonClose = () => {
+    setAnchorEl(null);
   };
 
   return (
@@ -74,7 +92,39 @@ const Header: React.FC<Props> = (props: Props) => {
               </Button>
             </Grid>
           ) : (
-            <Brightness3Icon />
+            <>
+              <Button
+                aria-controls="simple-menu"
+                aria-haspopup="true"
+                onClick={handleMoonClick}
+              >
+                <Brightness3Icon color="secondary" />
+              </Button>
+              <Menu
+                id="simple-menu"
+                anchorEl={anchorEl}
+                keepMounted
+                open={Boolean(anchorEl)}
+                onClose={handleMoonClose}
+              >
+                <MenuItem
+                  onClick={() => {
+                    history.push("/ogiri");
+                    handleMoonClose();
+                  }}
+                >
+                  大喜利会場へ
+                </MenuItem>
+                <MenuItem
+                  onClick={() => {
+                    handleShowLoginClick();
+                    handleMoonClose();
+                  }}
+                >
+                  ログイン
+                </MenuItem>
+              </Menu>
+            </>
           )}
         </Grid>
       </Toolbar>
