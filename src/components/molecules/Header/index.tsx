@@ -97,6 +97,14 @@ const Header: React.FC<Props> = (props: Props) => {
           >
             <MenuItem
               onClick={() => {
+                history.push("/");
+                handleMoonClose();
+              }}
+            >
+              トップ
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
                 history.push("/ogiri");
                 handleMoonClose();
               }}
