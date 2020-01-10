@@ -81,51 +81,39 @@ const Header: React.FC<Props> = (props: Props) => {
               <MenuIcon />
             </IconButton>
           </Grid>
-          {!props.user ? (
-            <Grid item>
-              <Button
-                onClick={handleShowLoginClick}
-                variant="contained"
-                aria-label="menu"
+          <Button
+            aria-controls="simple-menu"
+            aria-haspopup="true"
+            onClick={handleMoonClick}
+          >
+            <Brightness3Icon color="secondary" />
+          </Button>
+          <Menu
+            id="simple-menu"
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleMoonClose}
+          >
+            <MenuItem
+              onClick={() => {
+                history.push("/ogiri");
+                handleMoonClose();
+              }}
+            >
+              大喜利会場へ
+            </MenuItem>
+            {!props.user && (
+              <MenuItem
+                onClick={() => {
+                  handleShowLoginClick();
+                  handleMoonClose();
+                }}
               >
-                Login
-              </Button>
-            </Grid>
-          ) : (
-            <>
-              <Button
-                aria-controls="simple-menu"
-                aria-haspopup="true"
-                onClick={handleMoonClick}
-              >
-                <Brightness3Icon color="secondary" />
-              </Button>
-              <Menu
-                id="simple-menu"
-                anchorEl={anchorEl}
-                keepMounted
-                open={Boolean(anchorEl)}
-                onClose={handleMoonClose}
-              >
-                <MenuItem
-                  onClick={() => {
-                    history.push("/ogiri");
-                    handleMoonClose();
-                  }}
-                >
-                  大喜利会場へ
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    handleShowLoginClick();
-                    handleMoonClose();
-                  }}
-                >
-                  ログイン
-                </MenuItem>
-              </Menu>
-            </>
-          )}
+                ログイン
+              </MenuItem>
+            )}
+          </Menu>
         </Grid>
       </Toolbar>
       <LoginDialog
