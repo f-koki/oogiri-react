@@ -1,14 +1,12 @@
-import React, { useState, useContext, MouseEvent } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Toolbar,
   Button,
-  IconButton,
   Grid,
   Menu,
   MenuItem
 } from "@material-ui/core";
-import MenuIcon from "@material-ui/icons/Menu";
 import LoginDialog from "../../atoms/LoginDialog";
 import { useHistory } from "react-router";
 import { firebaseApp } from "../../../firebase";
@@ -76,11 +74,6 @@ const Header: React.FC<Props> = (props: Props) => {
           container
           spacing={2}
         >
-          <Grid item>
-            <IconButton edge="start" aria-label="menu">
-              <MenuIcon />
-            </IconButton>
-          </Grid>
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
