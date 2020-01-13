@@ -5,7 +5,8 @@ import {
   Button,
   Grid,
   Menu,
-  MenuItem
+  MenuItem,
+  Typography
 } from "@material-ui/core";
 import LoginDialog from "../../atoms/LoginDialog";
 import { useHistory } from "react-router";
@@ -74,6 +75,7 @@ const Header: React.FC<Props> = (props: Props) => {
           container
           spacing={2}
         >
+          <Typography variant="body1"></Typography>
           <Button
             aria-controls="simple-menu"
             aria-haspopup="true"
